@@ -1,14 +1,15 @@
 let boton= document.getElementById('boton')
-// onclick="getPosts()"
+let postData= document.getElementById('post-data')
+
 boton.addEventListener("click", ()=>{
     async function getPosts(){
         try{
             let data= await fetch('https://jsonplaceholder.typicode.com/posts');
             let respuesta= await data.json();
+            let post = '';
             respuesta.forEach(element => {
-    
-                document.getElementById('post-data').innerHTML=(`${element.title} | ${element.body}`);
-                
+                post +=`<ul class="lista p-4 mx-auto my-3 col-5"><li><h3>${element.title}</h3><p>${element.body}</p></li></ul>`;
+                postData.innerHTML= post
             });
         } catch (e){
             console.log(e)
