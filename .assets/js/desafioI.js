@@ -9,8 +9,8 @@ boton.addEventListener("click", ()=>{
             let post = '';
             respuesta.forEach(element => {
                 post +=`<ul class="lista p-4 mx-auto my-3 col-5"><li><h3>${element.title}</h3><p>${element.body}</p></li></ul>`;
-                postData.innerHTML= post
             });
+            postData.innerHTML= post; //Debe estar fuera del forEach porque modifica el DOM en una sola vuelta y no en varias
         } catch (e){
             console.log(e)
         }
